@@ -1,0 +1,9 @@
+{
+  "uuid": "gnome-shell-tray-icons@bzeq.github.io",
+  "name": "Tray icons",
+  "description": "Displays tray icons.",
+  "url": "https://github.com/bzEq/gnome-shell-tray-icons",
+  "shell-version": [
+    "3.30.2"
+  ]
+}
