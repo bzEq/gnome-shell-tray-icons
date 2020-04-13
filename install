@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import json
+import logging
+import shutil
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+METADATA = os.path.join(BASE_DIR, 'metadata.json')
+EXTENSION = os.path.join(BASE_DIR, 'extension.js')
+GNOME_SHELL_EXTENSIONS = os.path.join(os.getenv('HOME'), '.local', 'share',
+                                      'gnome-shell', 'extensions')
+
+
+def Die(message):
+    logging.error(message)
+    sys.exit(1)
+
+
+if __name__ == '__main__':
+    with open(METADATA, 'r') as f:
+        doc = json.load(f)
+    assert (os.path.isdir(GNOME_SHELL_EXTENSIONS))
+    uuid = doc.get('uuid')
+    if not uuid:
+        Die("Can't get uuid")
+    target_directory = os.path.join(GNOME_SHELL_EXTENSIONS, uuid)
+    os.makedirs(target_directory, exist_ok=True)
+    shutil.copy(METADATA, target_directory)
+    shutil.copy(EXTENSION, target_directory)
