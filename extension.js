@@ -42,7 +42,7 @@ function createTray() {
 }
 
 function createIconsContainer() {
-  // Create box layout for icon containers
+  // Create box layout for icon containers.
   iconsBoxLayout = new St.BoxLayout();
   iconsBoxLayout.set_style(
       'spacing: 10px; margin_top: 2px; margin_bottom: 2px;');
@@ -86,7 +86,7 @@ function ensureIconSize(icon) {
 
   let iconSize = icon.get_size()[0];
   // Some applications may use `imports.gi.Gtk.IconSize` e.g. Pidgin.
-  // See https://valadoc.org/gtk+-3.0/Gtk.IconSize.html .
+  // See https://valadoc.org/gtk+-3.0/Gtk.IconSize.html.
   if (iconSize != scaledIconSize) {
     icon.get_parent().set_size(scaledIconSize, scaledIconSize);
     icon.set_size(scaledIconSize, scaledIconSize);
