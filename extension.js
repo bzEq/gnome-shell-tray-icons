@@ -44,7 +44,7 @@ function createTray() {
 function createIconsContainer() {
     // Create box layout for icon containers
     iconsBoxLayout = new St.BoxLayout();
-    iconsBoxLayout.set_style('spacing: 13px; margin_top: 2px; margin_bottom: 2px;');
+    iconsBoxLayout.set_style('spacing: 10px; margin_top: 2px; margin_bottom: 2px;');
 
     // An empty ButtonBox will still display padding, therefore create it without visibility.
     iconsContainer = new PanelMenu.ButtonBox({visible: false});
